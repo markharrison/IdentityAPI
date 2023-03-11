@@ -1,0 +1,17 @@
+
+RG="AppService-rg"
+APPNAME="markidentityweb"
+
+
+az webapp config appsettings set -g $RG -n $APPNAME --settings AdminPW=
+
+az webapp config appsettings set -g $RG -n $APPNAME --settings AzureAd__Instance="https://login.microsoftonline.com/"
+az webapp config appsettings set -g $RG -n $APPNAME --settings AzureAd__Domain="markharrison.io"
+az webapp config appsettings set -g $RG -n $APPNAME --settings AzureAd__TenantId=""
+az webapp config appsettings set -g $RG -n $APPNAME --settings AzureAd__ClientId=""
+az webapp config appsettings set -g $RG -n $APPNAME --settings AzureAd__ClientSecret=""
+az webapp config appsettings set -g $RG -n $APPNAME --settings AzureAd__CallbackPath="/signin-oidc"
+
+
+az webapp config appsettings set -g $RG -n $APPNAME --settings ASPNETCORE_FORWARDEDHEADERS_ENABLED=false
+
